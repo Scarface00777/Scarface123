@@ -1,0 +1,511 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior Unity Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background: rgba(20, 20, 20, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ff9500, #ff5e00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-left: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            transition: 0.3s;
+            border-radius: 8px;
+        }
+
+        nav ul li a:hover {
+            background: #ff9500;
+        }
+
+        section {
+            padding: 120px 20px;
+            min-height: 100vh;
+        }
+
+        .button {
+            background: #ff9500;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            background: #e07b00;
+        }
+
+        /* Project Section */
+        #projects {
+            background: #1a1a1a;
+        }
+
+        .project-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .project-box {
+            background: #222;
+            padding: 20px;
+            border-radius: 15px;
+            width: 350px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .project-box:hover {
+            transform: scale(1.05);
+            background: #ff9500;
+        }
+
+        /* Swiper Container */
+        .swiper {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #ff9500;
+        }
+
+        .swiper-pagination-bullet {
+            background: #ff9500;
+        }
+
+        /* Videos Section */
+        #videos {
+            background: #1a1a1a;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #videos h2 {
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            margin-top: 30px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .video-container video {
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        footer {
+            padding: 20px;
+            background: #111;
+        }
+
+    /* Contact Section */
+#contact {
+    background: #1a1a1a;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ff9500;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+#contact h2:hover {
+    transform: translateY(-5px);
+}
+
+#contact .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+#contact .social-links a {
+    color: #ff9500;
+    font-size: 28px;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(255, 149, 0, 0.2);
+}
+
+#contact .social-links a:hover {
+    color: #fff;
+    background: #ff9500;
+    transform: scale(1.2) rotate(15deg);
+}
+
+#contact .download-cv {
+    background: #ff9500;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: perspective(1000px);
+}
+
+#contact .download-cv:hover {
+    background: #e07b00;
+    transform: scale(1.1) translateZ(10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#contact .download-cv:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Background particle effect for added depth */
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://cdn.pixabay.com/photo/2015/09/18/16/51/abstract-942190_960_720.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(10px);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Hassan Tech</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Hi, I'm Hassan Iqbal, a Junior Unity Developer</h2>
+        <p>Passionate about creating immersive 2D and 3D gaming experiences. Skilled in Unity, C#, Maya, and 3D modeling, I am committed to bringing creative projects to life with technical precision.</p>
+        <p>Currently, I’m focused on developing engaging games and improving my skills in game development, 3D modeling, and collaborative teamwork.</p>
+        <a href="#projects" class="button">View My Work</a>
+    </section>
+    
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            
+            <!-- Project 1 -->
+            <div class="project-box">
+                <h3>Project 1</h3>
+                <div class="swiper project1-swiper">
+                    <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/gunner4.png" alt="Project 1 Screenshot 1"></div>
+                        <div class="swiper-slide"><img src="images/gunner1.png" alt="Project 1 Screenshot 2"></div>
+                        <div class="swiper-slide"><img src="images/gunner2.png" alt="Project 1 Screenshot 3"></div>
+                        <div class="swiper-slide"><img src="images/gunner3.png" alt="Project 1 Screenshot 4"></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-box">
+                <h3>Project 2</h3>
+                <div class="swiper project2-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/blazeball1.png" alt="Project 2 Screenshot 1"></div>
+                        <div class="swiper-slide"><img src="images/blazeball2.png" alt="Project 2 Screenshot 2"></div>
+                        <div class="swiper-slide"><img src="images/blazeball3.png" alt="Project 2 Screenshot 3"></div>
+                        <div class="swiper-slide"><img src="images/blazeball4.png" alt="Project 2 Screenshot 3"></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-box">
+                <h3>Project 3</h3>
+                <div class="swiper project3-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/retro1.png" alt="Project 3 Screenshot 2"></div>
+                        <div class="swiper-slide"><img src="images/retro2.png" alt="Project 3 Screenshot 3"></div>
+                        <div class="swiper-slide"><img src="images/retro3.png" alt="Project 3 Screenshot 2"></div>
+                        <div class="swiper-slide"><img src="images/retro4.png" alt="Project 3 Screenshot 3"></div>
+                        <div class="swiper-slide"><img src="images/retro5.png" alt="Project 3 Screenshot 2"></div>
+                       
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!--project4-->
+            <div class="project-box">
+                <h3>Project 3</h3>
+                <div class="swiper project3-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/animation (2).png" alt="Project 3 Screenshot 2"></div>
+                        <div class="swiper-slide"><img src="images/animation (1).png" alt="Project 3 Screenshot 3"></div>
+                        <div class="swiper-slide"><img src="images/animation (3).png alt="Project 3 Screenshot 2"></div>
+                        <div class="swiper-slide"><img src="images/animation (4).png" alt="Project 3 Screenshot 3"></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!--project5-->
+            <div class="project-box">
+                <h3>Project 3</h3>
+                <div class="swiper project3-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/maya3.png" alt="Project 3 Screenshot 1"></div>
+                        <div class="swiper-slide"><img src="images/maya1 (1).png" alt="Project 3 Screenshot 2"></div>
+                        <div class="swiper-slide"><img src="images/maya1 (2).png" alt="Project 3 Screenshot 3"></div>
+                        <div class="swiper-slide"><img src="images/maya1 (3).png" alt="Project 3 Screenshot 3"></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!--project6-->
+            <div class="project-box">
+                <h3>Project 3</h3>
+                <div class="swiper project3-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/render2.png" alt="Project 3 Screenshot 1"></div>
+                        <div class="swiper-slide"><img src="images/render1.png" alt="Project 3 Screenshot 2"></div>
+                        <div class="swiper-slide"><img src="images/render3.png" alt="Project 3 Screenshot 3"></div>
+                        <div class="swiper-slide"><img src="images/render4.png" alt="Project 3 Screenshot 3"></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos">
+        <h2>My Videos</h2>
+        <div class="video-container">
+            <h4>projects video</h4>
+            <video controls>
+                <source src="videos/project-video.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I’m Hassan Iqbal, an aspiring Junior Unity Developer. I specialize in both 2D and 3D game development, utilizing C# and Unity to create dynamic, engaging experiences. I also have a strong background in 3D modeling and animation, with expertise in tools like Maya, Photoshop, and Unreal Engine.</p>
+        
+        <p>My journey began with a passion for video games and has grown into a love for developing immersive digital worlds. I’ve worked on various personal and group projects, including building complex 3D models and creating games with physics-based mechanics.</p>
+    
+        <p>Currently, I am pursuing a degree in Games Design and Development at the University of Greenwich, specializing in modeling and animation. I am always eager to improve my technical skills while collaborating with teams to create projects that captivate players.</p>
+    
+        <h3>Skills:</h3>
+        <ul>
+            <li>Programming: C#, Object-Oriented Programming (OOP), Unity Scripting</li>
+            <li>Game Development: Unity (2D & 3D), Game Rendering, Game Physics</li>
+            <li>3D Art & Design: Maya, 3D Modeling, Texturing, Animation</li>
+            <li>Collaboration: Git/GitHub, Version Control, Group Project Experience</li>
+            <li>Soft Skills: Communication, Teamwork, Problem-Solving</li>
+        </ul>
+    
+        <h3>Education:</h3>
+        <ul>
+            <li>BSc (Hons) Games Design and Development – University of Greenwich (2022 - Present)</li>
+            <li>BTEC Level 3 IT – New City College (2020 - 2022)</li>
+            <li>GCSEs – Cumberland School (2019 - 2020)</li>
+        </ul>
+    
+        <h3>Work Experience:</h3>
+        <p><strong>Retail Assistant – JD Sports (2022 – Present)</strong></p>
+        <ul>
+            <li>Provided excellent customer service and increased store sales through upselling.</li>
+            <li>Built strong relationships with customers, improving retention.</li>
+            <li>Collaborated in a team environment to meet and exceed daily sales targets.</li>
+        </ul>
+    
+        <p>If you'd like to connect or discuss potential collaborations, feel free to reach out via <a href="hassaniqiqkhan111@gmail.com">email</a> or check out my <a href="https://www.linkedin.com/in/hassan-iqbal-884b9619b/">LinkedIn profile</a>.</p>
+    </section>
+    
+
+   <section id="contact"> 
+    <h2>Contact Me</h2>
+    
+    <!-- Email Link (opens Outlook or default email client) -->
+    <p class="contact-info">
+        📧 Email: 
+        <a href="mailto:hassaniqiqkhan111@gmail.com">hassaniqiqkhan111@gmail.com</a>
+    </p>
+
+    <!-- LinkedIn Icon that links directly to LinkedIn profile -->
+    <p class="contact-info">
+        🔗 LinkedIn: 
+        <a href="https://www.linkedin.com/in/hassan-iqbal-884b9619b/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    </p>
+
+    <!-- Download Resume -->
+    <p class="contact-info"> 
+        📜 
+        <a href="resume/Resume.pdf" class="button">Download Resume</a>
+    </p>
+</section>
+
+
+    <footer>
+        <p>&copy; 2024 Hassan Tech. All rights reserved.</p>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        function initSwiper(className) {
+            new Swiper(className, {
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            initSwiper(".project1-swiper");
+            initSwiper(".project2-swiper");
+            initSwiper(".project3-swiper");
+            initSwiper(".project4-swiper");
+            initSwiper(".project5-swiper");
+            initSwiper(".project6-swiper");
+        });
+    </script>
+
+</body>
+</html>
